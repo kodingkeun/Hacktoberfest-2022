@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.js"></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css"
+      type="text/css"
+    />
+
+    <style>
+      body {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+        background: cornflowerblue;
+      }
+      #map {
+        width: 97%;
+        height: 94%;
+      }
+    </style>
+    <title>Maps Application</title>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script defer>
+      mapboxgl.accessToken =
+        'pk.eyJ1IjoibmVyZHl2aXNreSIsImEiOiJja3dseW1odjgweTN2MnZtdGRsc203a3NyIn0.JPezF164pZfRbLW2PLh_BA';
+      function getLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(
+            fetchLocation,
+            handleErrors,
+            {
+              enableHighAccuracy: true,
+            }
+          );
+        } else {
+          console.error('Browser does not support geolocation');
+        }
+      }
+      getLocation();
+      // 72.62848,22.98844
+
+      function fetchLocation(position) {
+        console.log(position.coords);
+        const currentPos = [
+          position.coords.longitude,
+          position.coords.latitude,
+        ];
+        setupMap(currentPos);
+      }
+      function handleErrors(error) {
+        switch (error.code) {
+          case error.PERMISSION_DENIED:
+            console.log('User denied the request for Geolocation.');
+            break;
+          case error.POSITION_UNAVAILABLE:
+            console.log('Location information is unavailable.');
+            break;
+          case error.TIMEOUT:
+            console.log('The request to get user location timed out.');
+            break;
+          case error.UNKNOWN_ERROR:
+            console.error('unknown error!');
+            break;
+        }
+      }
+
+      function setupMap(center) {
+        const map = new mapboxgl.Map({
+          container: 'map', // container ID
+          style: 'mapbox://styles/mapbox/streets-v11', // style URL
+          center: center, // starting position [lng, lat]
+          zoom: 13, // starting zoom
+        });
+        const nav = new mapboxgl.NavigationControl();
+        map.addControl(nav, 'top-left');
+
+        var directions = new MapboxDirections({
+          accessToken: mapboxgl.accessToken,
+        });
+
+        map.addControl(directions, 'top-right');
+      }
+    </script>
+  </body>
+</html>
