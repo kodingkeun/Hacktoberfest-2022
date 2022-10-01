@@ -28,3 +28,6 @@ langkah-langkah:
 
 Sekali lagi saya ingatkan, dimohon jangan lupa masukkan nama anda di contributing.md
 Terima kasih telah berpartisipasi dengan repo ini.
+
+## License 
+Distributed under the MIT License. See LICENSE.txt for more information.
