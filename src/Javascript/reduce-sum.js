@@ -7,6 +7,6 @@ const reduceSum = function (key, obj) {
     }, 0)
 }
 
-let totalItems = reduceSum('level', hero)
+let totalLevelItem = reduceSum('level', hero)
 
-console.log(totalItems)
+console.log(totalLevelItem)
