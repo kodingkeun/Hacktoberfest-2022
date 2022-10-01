@@ -5,3 +5,4 @@
 - sayaPintar
 - Romaaji
 - Aditya Permadi
+- ideapedyudi
