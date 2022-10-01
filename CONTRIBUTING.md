@@ -3,7 +3,7 @@
 - Ibnu Syawal
 - meowcraftY
 - sayaPintar
-- Faiz Grakody
 - Romaaji
 - Aditya Permadi
-
+- ideapedyudi
+- Faiz Grakody
