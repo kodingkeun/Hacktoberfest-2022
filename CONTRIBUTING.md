@@ -13,4 +13,11 @@
 - Vishvesh Trivedi
 - Fahri Gunadi
 - ekoyanu99
+- Abhijit25Mishra
+- aldyansyahcp 
+- salimsea
+- kacrut06
+- Reysekha
+- igrzhukovich
+- CinnamonXI
 - AkasakaID
